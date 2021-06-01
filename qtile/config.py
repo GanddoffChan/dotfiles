@@ -1,0 +1,1 @@
+/home/gc/.config/qtile/config.py

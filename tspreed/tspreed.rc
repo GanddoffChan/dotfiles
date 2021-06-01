@@ -1,1 +1,7 @@
-/home/gc/.config/tspreed/tspreed.rc
+wpm=300
+lengthvary=true
+hidecursor=true
+focus=true
+focuspointer=point
+focusbold=true
+focuscolor=6

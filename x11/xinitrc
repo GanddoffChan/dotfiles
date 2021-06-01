@@ -1,1 +1,13 @@
-/home/gc/.config/x11/xinitrc
+#!/bin/sh
+
+echo 'scan on' | bluetoothctl &
+setxkbmap -option caps:escape &
+redshift &
+xcompmgr &
+lxsession &
+dunst &
+#nitrogen --random --set-zoom-fill ~/Pictures/wallpapers &
+pacwall -ug &
+xset r rate 300 50 &
+dwmblocks & exec dwm
+#exec qtile

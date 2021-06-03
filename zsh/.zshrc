@@ -25,21 +25,22 @@ setopt interactive_comments
 REPORTTIME=3
 
 # Keep a lot of history
-HISTFILE=~/.config/zsh/history
 HISTSIZE=10000000
 SAVEHIST=10000000
-# Add commands to history as they are entered, don't wait for shell to exit
-setopt INC_APPEND_HISTORY
-# Also remember command start time and duration
-setopt EXTENDED_HISTORY
-# Do not keep duplicate commands in history
-setopt HIST_IGNORE_ALL_DUPS
-# Do not remember commands that start with a whitespace
-setopt HIST_IGNORE_SPACE
-# Correct spelling of all arguments in the command line
-setopt CORRECT_ALL
-# Enable autocompletion
-zstyle ':completion:*' completer _complete _correct _approximate
+HISTFILE=~/.cache/zsh/history
+
+## Add commands to history as they are entered, don't wait for shell to exit
+#setopt INC_APPEND_HISTORY
+## Also remember command start time and duration
+#setopt EXTENDED_HISTORY
+## Do not keep duplicate commands in history
+#setopt HIST_IGNORE_ALL_DUPS
+## Do not remember commands that start with a whitespace
+#setopt HIST_IGNORE_SPACE
+## Correct spelling of all arguments in the command line
+#setopt CORRECT_ALL
+## Enable autocompletion
+#zstyle ':completion:*' completer _complete _correct _approximate
 
 newsh () {
 	doas touch /usr/local/bin/$1 && doas chown gc /usr/local/bin/$1 && doas chmod 755 /usr/local/bin/$1 && echo '#!/bin/sh' > /usr/local/bin/$1 && nvim /usr/local/bin/$1
@@ -77,16 +78,11 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
 # Change cursor shape for different vi modes.
-function zle-keymap-select {
-  if [[ $KEYMAP == vicmd ]] ||
-     [[ $1 = 'block' ]]; then
-    echo -ne '\e[1 q'
-  elif [[ $KEYMAP == main ]] ||
-       [[ $KEYMAP == viins ]] ||
-       [[ $KEYMAP = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
-  fi
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
 }
 zle -N zle-keymap-select
 zle-line-init() {
@@ -97,6 +93,23 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp" >/dev/null
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
+
+bindkey -s '^a' 'bc -lq\n'
+
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+
+bindkey '^[[P' delete-char
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
@@ -108,6 +121,7 @@ alias cfzsh='nvim ~/.config/zsh/.zshrc'
 alias cfnvim='nvim ~/.config/nvim/init.vim'
 alias cp='cp -iv'
 alias df='df -h'
+alias diff='diff --color=auto'
 alias fixmine='rm -rf ~/.minecraft/launcher'
 alias fixpac='doas rm /var/lib/paman/db.lck'
 alias font='fontpreview-ueberzug'
@@ -142,12 +156,4 @@ alias yta='youtube-dl --extract-audio --audio-quality 0'
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 
-#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export HSTR_CONFIG=hicolor
-# get more colors
-setopt histignorespace
-# skip cmds w/ leading space from history
-bindkey -s "\C-r" "\C-a hstr -- \C-j" # bind hstr to Ctrl-r (for Vi mode check doc)
-
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"

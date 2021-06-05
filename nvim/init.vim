@@ -19,7 +19,8 @@ set title
     syntax on
     set bg=dark
     let g:gruvbox_italic=1
-    colo gruvbox
+    "colo gruvbox
+    "source colo.vim
     hi CursorLineNr ctermbg=NONE
     hi Normal ctermbg=NONE
 
@@ -208,3 +209,6 @@ set title
 
     autocmd FileType tex inoremap <leader>up <Esc>/usepackage<CR>o\usepackage{}<Esc>i
     autocmd FileType tex nnoremap <leader>up /usepackage<CR>o\usepackage{}<Esc>i
+
+" html
+    autocmd FileType html inoremap <leader><> <DELRN><++></DELRN><Esc>0fR:MultipleCursorsFind<Space>DELRN<CR>c

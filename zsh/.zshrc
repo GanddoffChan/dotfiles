@@ -42,8 +42,8 @@ HISTFILE=~/.cache/zsh/history
 ## Enable autocompletion
 #zstyle ':completion:*' completer _complete _correct _approximate
 
-newsh () {
-	doas touch /usr/local/bin/$1 && doas chown gc /usr/local/bin/$1 && doas chmod 755 /usr/local/bin/$1 && echo '#!/bin/sh' > /usr/local/bin/$1 && nvim /usr/local/bin/$1
+news () {
+    curl getnews.tech/$1
 }
 
 newtex () {
@@ -137,7 +137,7 @@ alias miniso='bluetoothctl power on && bluetoothctl -- connect FC:58:FA:B5:63:3C
 alias mk='doas make clean install'
 alias mkd='mkdir -pv'
 alias mv='mv -iv'
-alias myip='curl ipinfo.io/ip && printf "\n"'
+alias myip='curl ifconfig.co'
 alias pg='ping -c 3 archlinux.org'
 alias multil='xrandr --output HDMI1 --right-of eDP1'
 alias multiu='xrandr --output HDMI1 --above eDP1'
@@ -147,6 +147,7 @@ alias rr='curl -s -L http://bit.ly/10hA8iC | bash'
 alias sc='source ~/.bashrc'
 alias sptf='spotifyd && spt'
 alias sun='echo sun'
+alias sx='startx ~/.config/x11/xinitrc'
 alias tex='cd ~/Documents/LaTeX'
 alias umk='doas make clean uninstall'
 alias weather='curl wttr.in/Singapore'

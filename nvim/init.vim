@@ -5,17 +5,25 @@
 " |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 
 let mapleader=","
-set bg=dark
 set clipboard+=unnamedplus
 set encoding=utf-8
 set go=a
+set ignorecase
 set mouse=a
 set nocompatible
 set noswapfile
 set number relativenumber
 set title
 
-" Minimalistic staus line (I hate plugins.).
+" Colour scheme.
+    syntax on
+    set bg=dark
+    let g:gruvbox_italic=1
+    colo gruvbox
+    hi CursorLineNr ctermbg=NONE
+    hi Normal ctermbg=NONE
+
+" Minimalistic status line (I hate plug-ins.).
     set statusline=
     set statusline+=%#Cursor#                   " colour
     set statusline+=\ %n\                       " buffer number
@@ -25,6 +33,7 @@ set title
     set statusline+=%{&spell?'\ SPELL\ ':''}    " spell check indicator
     set statusline+=%#Cursorline#               " colour
     set statusline+=\ %F                        " long file name
+
     set statusline+=%=                          " right align
     set statusline+=%#CursorLine#               " colour
     set statusline+=\ %y\                       " file type
@@ -54,7 +63,6 @@ set title
     nnoremap N   Nzz
     nnoremap c "_c
     nnoremap n   nzz
-    syntax on
 
 " Auto spell check on certain file types.
     autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
@@ -69,7 +77,7 @@ set title
     vnoremap . :normal .<CR>
 
 " Goyo plug-in makes text more readable when writing prose.
-    map <silent> <leader>g :Goyo \| set bg=dark \| set linebreak<CR>
+    map <silent> <leader>g :Goyo \| hi CursorLineNr ctermbg=NONE \| hi Normal ctermbg=NONE \| set linebreak<CR>
 
 " Spell-check set to <leader>o, 'o' for 'orthography'.
     map <silent> <leader>o :setlocal spell! spelllang=en_gb<CR>
@@ -118,7 +126,7 @@ set title
 
 " Enable Goyo by default for mutt writing.
     autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
-    autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=light
+    autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo | set bg=dark
     autocmd BufRead,BufNewFile /tmp/neomutt* map ZZ :Goyo\|x!<CR>
     autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
@@ -150,13 +158,7 @@ set title
     endfunction
     nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
 
-" Colourscheme.
-    let g:gruvbox_italic=1
-    colo gruvbox
-    hi CursorLineNr ctermbg=NONE
-    hi Normal ctermbg=NONE
-
-" Function to toggle transparent backgroud.
+" Function to toggle transparent background.
     let t:is_transparent = 1
     function! Toggle_transparent()
         if t:is_transparent == 0

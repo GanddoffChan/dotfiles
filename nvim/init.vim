@@ -172,6 +172,12 @@ set title
     endfunction
     nnoremap <silent> <leader>t :call Toggle_transparent()<CR>
 
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunction
 
 "  ____        _                  _
 " / ___| _ __ (_)_ __  _ __   ___| |_ ___

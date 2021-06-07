@@ -7,6 +7,7 @@ export EDITOR="nvim"
 export TERM="st"
 export MANPAGER="nvim -c 'set ft=man' -"
 export NO_AT_BRIDGE=1
+export LOCATION='Singapore'
 
 export CLICOLOR=1
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"

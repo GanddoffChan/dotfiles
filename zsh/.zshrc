@@ -6,13 +6,6 @@
 
 [ -z $DISPLAY ] && [ $XDG_VTNR -eq 1 ] && $(startx ~/.config/x11/xinitrc)
 
-[ -f /etc/bash.command-not-found ] && . /etc/bash.command-not-found
-
-# humble flex
-#pfetch
-#uwufetch
-#colorscript random
-
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -29,19 +22,6 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
 
-## Add commands to history as they are entered, don't wait for shell to exit
-#setopt INC_APPEND_HISTORY
-## Also remember command start time and duration
-#setopt EXTENDED_HISTORY
-## Do not keep duplicate commands in history
-#setopt HIST_IGNORE_ALL_DUPS
-## Do not remember commands that start with a whitespace
-#setopt HIST_IGNORE_SPACE
-## Correct spelling of all arguments in the command line
-#setopt CORRECT_ALL
-## Enable autocompletion
-#zstyle ':completion:*' completer _complete _correct _approximate
-
 news () {
     curl getnews.tech/$1
 }
@@ -54,6 +34,12 @@ dt () {
 	dict $1 | bat
 }
 
+getforecast() { curl -sf "wttr.in/$LOCATION" > "$weatherreport" || exit 1 ;}
+
+showweather() { printf "%s" "$(sed '16q;d' "$weatherreport" |
+    grep -wo "[0-9]*%" | sort -rn | sed "s/^/☔/g;1q" | tr -d '\n')"
+    sed '13q;d' "$weatherreport" | grep -o "m\\([-+]\\)*[0-9]\\+" | sed 's/+//g' | sort -n -t 'm' -k 2n | sed -e 1b -e '$!d' | tr '\n|m' ' ' | awk '{print " 🥶" $1 "°","🌞" $2 "°"}' ;
+}
 
 wf () {
 	doas bat /etc/NetworkManager/system-connections/"$1".nmconnection
@@ -156,5 +142,3 @@ alias yta='youtube-dl --extract-audio --audio-quality 0'
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-
-# eval "$(starship init zsh)"

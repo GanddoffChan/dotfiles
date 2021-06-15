@@ -1,3 +1,9 @@
+# put
+# source /home/"user name"/.config/zsh/.zshenv
+# in /etc/zsh/zshenv
+
+export MANGOHUD=1
+
 export XDG_CACHE_HOME="/home/gc/.cache"
 export XDG_CONFIG_HOME="/home/gc/.config"
 export XDG_DATA_HOME="/home/gc/.local/share"

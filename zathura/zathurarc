@@ -49,8 +49,4 @@ set notification-fg "#151515" #00
 
 #set render-loading "false"
 
-map R rotate
-map K zoom in
-map J zoom out
-map i recolor
 map p print

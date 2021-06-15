@@ -2,7 +2,7 @@
 
 #echo 'scan on' | bluetoothctl &
 xwallpaper --zoom ~/Pictures/wallpapers/0026.jpg &
-setxkbmap -option caps:escape &
+setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &
 xset r rate 300 50 &

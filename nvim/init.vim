@@ -17,12 +17,13 @@ set title
 
 " Colour scheme.
     syntax on
-    set bg=dark
     let g:gruvbox_italic=1
-    "colo gruvbox
+    colo gruvbox
     "source colo.vim
     hi CursorLineNr ctermbg=NONE
     hi Normal ctermbg=NONE
+    hi htmlBold ctermbg=NONE
+    hi htmlItalic ctermbg=NONE
 
 " Minimalistic status line (I hate plug-ins.).
     set statusline=
@@ -178,6 +179,7 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
+nnoremap <leader>st :call SynStack()<CR>
 
 "  ____        _                  _
 " / ___| _ __ (_)_ __  _ __   ___| |_ ___

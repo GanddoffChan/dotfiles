@@ -1,10 +1,12 @@
 #!/bin/sh
 
 #echo 'scan on' | bluetoothctl &
-xwallpaper --zoom ~/Pictures/wallpapers/0026.jpg &
+xwallpaper --zoom ~/Pictures/wallpapers/0146.jpg &
 setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &
 xset r rate 300 50 &
-dwmblocks &
+unclutter &
+dunst &
+slstatus &
 exec dwm

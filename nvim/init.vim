@@ -14,16 +14,18 @@ set nocompatible
 set noswapfile
 set number relativenumber
 set title
+syntax on
 
 " Colour scheme.
-    syntax on
-    let g:gruvbox_italic=1
-    colo gruvbox
-    "source colo.vim
-    hi CursorLineNr ctermbg=NONE
-    hi Normal ctermbg=NONE
-    hi htmlBold ctermbg=NONE
-    hi htmlItalic ctermbg=NONE
+"    let g:gruvbox_italic=1
+"    colo gruvbox
+"    "source colo.vim
+"    hi CursorLineNr ctermbg=NONE
+"    hi Normal ctermbg=NONE
+"    hi htmlBold ctermbg=NONE
+"    hi htmlItalic ctermbg=NONE
+"    hi xf86confComment ctermbg=NONE
+"    hi xf86confTodo ctermbg=NONE
 
 " Minimalistic status line (I hate plug-ins.).
     set statusline=
@@ -85,10 +87,14 @@ set title
     map <silent> <leader>o :setlocal spell! spelllang=en_gb<CR>
 
 " Short cutting split navigation, saving a key press.
-    map <C-h> <C-w>h
-    map <C-j> <C-w>j
-    map <C-k> <C-w>k
-    map <C-l> <C-w>l
+    map <c-h> <c-w>h
+    map <c-j> <c-w>j
+    map <c-k> <c-w>k
+    map <c-l> <c-w>l
+    map <s-h> <c-w><
+    map <s-l> <c-w>>
+    map <s-j> <c-w>-
+    map <s-k> <c-w>+
 
 " Replace ex mode with gq.
     map Q gq

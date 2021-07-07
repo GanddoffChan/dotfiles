@@ -2,8 +2,6 @@
 # source /home/"user name"/.config/zsh/.zshenv
 # in /etc/zsh/zshenv
 
-export MANGOHUD=1
-
 export XDG_CACHE_HOME="/home/gc/.cache"
 export XDG_CONFIG_HOME="/home/gc/.config"
 export XDG_DATA_HOME="/home/gc/.local/share"
@@ -14,6 +12,7 @@ export TERM="st"
 export MANPAGER="nvim -c 'set ft=man' -"
 export NO_AT_BRIDGE=1
 export LOCATION='Singapore'
+export MANGOHUD=1
 
 export CLICOLOR=1
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"

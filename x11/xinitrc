@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#echo 'scan on' | bluetoothctl &
 xwallpaper --zoom ~/Pictures/wallpapers/0146.jpg &
 setxkbmap -option caps:swapescape &
 redshift &

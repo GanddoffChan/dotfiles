@@ -4,6 +4,17 @@
 " | | | | | | |_ \ V /| | | | | | |
 " |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 
+" VimPlugs.
+    call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+    Plug 'ap/vim-css-color'
+    Plug 'junegunn/goyo.vim'
+    Plug 'mhinz/vim-startify'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
+    Plug 'vimwiki/vimwiki'
+    call plug#end()
+
 let mapleader=","
 set clipboard+=unnamedplus
 set encoding=utf-8
@@ -16,17 +27,6 @@ set number relativenumber
 set title
 syntax on
 
-" Colour scheme.
-"    let g:gruvbox_italic=1
-"    colo gruvbox
-"    "source colo.vim
-"    hi CursorLineNr ctermbg=NONE
-"    hi Normal ctermbg=NONE
-"    hi htmlBold ctermbg=NONE
-"    hi htmlItalic ctermbg=NONE
-"    hi xf86confComment ctermbg=NONE
-"    hi xf86confTodo ctermbg=NONE
-
 " Minimalistic status line (I hate plug-ins.).
     set statusline=
     set statusline+=%#Cursor#                   " colour
@@ -35,27 +35,15 @@ syntax on
     set statusline+=\ \[%M                      " modified [+] flag
     set statusline+=%R\]\                       " read-only flag
     set statusline+=%{&spell?'\ SPELL\ ':''}    " spell check indicator
-    set statusline+=%#Cursorline#               " colour
+    set statusline+=%#Cursor#                   " colour
     set statusline+=\ %F                        " long file name
 
     set statusline+=%=                          " right align
-    set statusline+=%#CursorLine#               " colour
     set statusline+=\ %y\                       " file type
     set statusline+=%#CursorIM#                 " colour
     set statusline+=\ %3l:%-2c\                 " line + column
     set statusline+=%#Cursor#                   " colour
     set statusline+=\ %P\                       " percentage
-
-" VimPlugs.
-    call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-    Plug 'ap/vim-css-color'
-    Plug 'junegunn/goyo.vim'
-    Plug 'mhinz/vim-startify'
-    Plug 'terryma/vim-multiple-cursors'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-surround'
-    Plug 'vimwiki/vimwiki'
-    call plug#end()
 
 " Indents that consist of 4 space characters but are entered with the tab key.
     set tabstop=4 softtabstop=4 expandtab shiftwidth=4 autoindent smarttab
@@ -166,19 +154,6 @@ syntax on
     endfunction
     nnoremap <silent> <leader>h :call ToggleHiddenAll()<CR>
 
-" Function to toggle transparent background.
-    let t:is_transparent = 1
-    function! Toggle_transparent()
-        if t:is_transparent == 0
-            hi Normal guibg=NONE ctermbg=NONE
-            let t:is_transparent = 1
-        else
-            set background=dark
-            let t:is_transparent = 0
-        endif
-    endfunction
-    nnoremap <silent> <leader>t :call Toggle_transparent()<CR>
-
 function! SynStack()
   if !exists("*synstack")
     return
@@ -225,4 +200,4 @@ nnoremap <leader>st :call SynStack()<CR>
     autocmd FileType tex nnoremap <leader>up /usepackage<CR>o\usepackage{}<Esc>i
 
 " html
-    autocmd FileType html inoremap <leader><> <DELRN><++></DELRN><Esc>0fR:MultipleCursorsFind<Space>DELRN<CR>c
+    autocmd FileType html inoremap <leader><> <DELRN><++></DELRN><Esc>0fR:MultipleCursorsFind<Space>DELRN<CR>ce

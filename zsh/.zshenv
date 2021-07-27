@@ -17,7 +17,7 @@ export MANGOHUD=1
 export CLICOLOR=1
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export LESS="-M"
-export PATH="$HOME/scripts:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:$PATH"
 
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'

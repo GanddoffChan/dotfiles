@@ -10,7 +10,7 @@
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors
 setopt prompt_subst
-PROMPT="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+PROMPT="%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~ $%b "
 RPROMPT="%D{(%a) %d %b %y | %H:%M:%S}"
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 precmd() $funcstack[1]() echo   # Print lines between commands
@@ -112,6 +112,7 @@ alias cfz='nvim ~/.config/zsh/.zshrc'
 alias cfv='nvim ~/.config/nvim/init.vim'
 alias cp='cp -iv'
 alias df='df -h'
+alias emerge='doas emerge -a'
 alias diff='diff --color=auto'
 alias fixmine='rm -rf ~/.minecraft/launcher'
 alias fixpac='doas rm /var/lib/paman/db.lck'
@@ -138,6 +139,7 @@ alias pp='prettyping -c 3 archlinux.org'
 alias multir='xrandr --output HDMI1 --mode 1920x1080 --right-of eDP1'
 alias multiu='xrandr --output HDMI1 --mode 1920x1080 --above eDP1'
 alias projecc='xrandr --output HDMI1 --mode 1920x1080'
+alias reboot='doas reboot'
 alias rm='rm -iv'
 alias ro='chmod 446'
 alias rr='curl -s -L http://bit.ly/10hA8iC | bash'

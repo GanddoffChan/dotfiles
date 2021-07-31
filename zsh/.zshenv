@@ -6,7 +6,7 @@ export XDG_CACHE_HOME="/home/gc/.cache"
 export XDG_CONFIG_HOME="/home/gc/.config"
 export XDG_DATA_HOME="/home/gc/.local/share"
 
-export BROWSER="brave"
+export BROWSER="brave-bin"
 export EDITOR="nvim"
 export TERM="st"
 export MANPAGER="nvim -c 'set ft=man' -"
@@ -17,16 +17,14 @@ export MANGOHUD=1
 export CLICOLOR=1
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export LESS="-M"
-export PATH="$HOME/.local/bin:$HOME/scripts:$PATH"
+export PATH="/home/gc/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/12/bin"
 
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
-#export GTK_IM_MODULE='ibus'
-#export QT_IM_MODULE='ibus'
-#export XMODIFIERS='@im=ibus'
+export QT_QPA_PLATFORMTHEME='qt5ct'
 
 #$HOME/ Clean-up:
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
@@ -49,6 +47,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export TEXMFHOME="$XDG_DATA_HOME/texmf"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export TEXMFCONFIG="$XDG_CONFIG_HOME/texlive/texmf-config"
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 
 # This is the list for lf icons:
 export LF_ICONS="\

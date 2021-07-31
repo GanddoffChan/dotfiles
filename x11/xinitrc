@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xwallpaper --zoom ~/Pictures/wallpapers/wallpaper.jpg &
+xwallpaper --zoom ~/Pictures/wallpapers/compiling.jpg &
 setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &

@@ -110,7 +110,7 @@ bindkey '^e' edit-command-line
 alias GIT='git add . && git commit && git push'
 alias bud='bluetoothctl power on && bluetoothctl -- connect A3:B8:30:E3:AB:2B'
 alias cfp='doas vi ~/dotfiles/portage/make.conf'
-alias cfv='vi ~/.config/vi/init.vim'
+alias cfv='vi ~/.config/nvim/init.vim'
 alias cfz='vi ~/.config/zsh/.zshrc'
 alias cp='cp -iv'
 alias df='df -h'

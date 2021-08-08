@@ -40,7 +40,7 @@ news () {
 }
 
 newtex () {
-	cp ~/Documents/LaTeX/templete.tex ~/Documents/LaTeX/$1 && nvim ~/Documents/LaTeX/$1
+	cp ~/Documents/LaTeX/templete.tex ~/Documents/LaTeX/$1 && vi ~/Documents/LaTeX/$1
 }
 
 dt () {
@@ -109,9 +109,9 @@ bindkey '^e' edit-command-line
 
 alias GIT='git add . && git commit && git push'
 alias bud='bluetoothctl power on && bluetoothctl -- connect A3:B8:30:E3:AB:2B'
-alias cfp='doas nvim ~/dotfiles/portage/make.conf'
-alias cfv='nvim ~/.config/nvim/init.vim'
-alias cfz='nvim ~/.config/zsh/.zshrc'
+alias cfp='doas vi ~/dotfiles/portage/make.conf'
+alias cfv='vi ~/.config/vi/init.vim'
+alias cfz='vi ~/.config/zsh/.zshrc'
 alias cp='cp -iv'
 alias df='df -h'
 alias diff='diff --color=auto'
@@ -119,7 +119,7 @@ alias fixmine='rm -rf ~/.minecraft/launcher'
 alias fixpac='doas rm /var/lib/paman/db.lck'
 alias font='fontpreview-ueberzug'
 alias grep='grep --color=auto'
-alias grub='doas nvim /etc/default/grub && doas grub-mkconfig -o /boot/grub/grub.cfg'
+alias grub='doas vi /etc/default/grub && doas grub-mkconfig -o /boot/grub/grub.cfg'
 alias henlo='echo henlo'
 alias hist="fc -l 1 | awk '{print $2}' | dmenu -l 50 | xclip -selection clipboard"
 alias history='fc -l 1'

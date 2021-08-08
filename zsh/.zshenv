@@ -9,7 +9,7 @@ export XDG_DATA_HOME="/home/gc/.local/share"
 export BROWSER="brave-bin"
 export EDITOR="nvim"
 export TERM="st"
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER="vi -c 'set ft=man' -"
 export NO_AT_BRIDGE=1
 export LOCATION='Singapore'
 export MANGOHUD=1

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xwallpaper --zoom ~/Pictures/wallpapers/compiling.jpg &
+xwallpaper --stretch ~/Pictures/wallpapers/compiling.jpg &
 setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &
@@ -8,3 +8,4 @@ xset r rate 300 50 &
 dunst &
 slstatus &
 exec dwm
+#exec openbox

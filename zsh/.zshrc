@@ -25,8 +25,8 @@ REPORTTIME=3
 HISTSIZE=10000000
 SAVEHIST=10000000
 HISTFILE=~/.cache/zsh/history
-setopt HIST_IGNORE_ALL_DUPS     # do not put duplicated command into history list
-setopt HIST_SAVE_NO_DUPS        # do not save duplicated command
+#setopt HIST_IGNORE_ALL_DUPS     # do not put duplicated command into history list
+#setopt HIST_SAVE_NO_DUPS        # do not save duplicated command
 setopt HIST_REDUCE_BLANKS       # remove unnecessary blanks
 setopt INC_APPEND_HISTORY_TIME  # append command to history file immediately after execution
 setopt EXTENDED_HISTORY         # record command start time
@@ -53,9 +53,10 @@ wf () {
 
 # Basic auto/tab complete:
 autoload -U compinit
+compinit
+zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
@@ -108,11 +109,11 @@ bindkey '^e' edit-command-line
 
 alias GIT='git add . && git commit && git push'
 alias bud='bluetoothctl power on && bluetoothctl -- connect A3:B8:30:E3:AB:2B'
-alias cfz='nvim ~/.config/zsh/.zshrc'
+alias cfp='doas nvim ~/dotfiles/portage/make.conf'
 alias cfv='nvim ~/.config/nvim/init.vim'
+alias cfz='nvim ~/.config/zsh/.zshrc'
 alias cp='cp -iv'
 alias df='df -h'
-alias emerge='doas emerge -a'
 alias diff='diff --color=auto'
 alias fixmine='rm -rf ~/.minecraft/launcher'
 alias fixpac='doas rm /var/lib/paman/db.lck'
@@ -154,4 +155,4 @@ alias yt='youtube-dl --add-metadata -i'
 alias yta='yt -x -f bestaudio/best'
 
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh

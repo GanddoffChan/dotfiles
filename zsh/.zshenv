@@ -30,6 +30,7 @@ export QT_QPA_PLATFORMTHEME='qt5ct'
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export LESSHISTFILE="-"
 export PYLINTHOME="$XDG_CACHE_HOME/pylint"
+export GTK_RC_FILES="$XDG_CONFIG_HOME"/gtk-1.0/gtkrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export MATHEMATICA_USERBASE="$XDG_CONFIG_HOME/mathematica"
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"

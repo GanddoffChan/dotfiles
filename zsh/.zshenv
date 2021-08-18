@@ -17,7 +17,7 @@ export MANGOHUD=1
 export CLICOLOR=1
 export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 export LESS="-M"
-export PATH="/home/gc/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/12/bin"
+export PATH="${PATH}:/home/gc/scripts:"
 
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'

@@ -1,11 +1,12 @@
 #!/bin/sh
 
-xwallpaper --stretch ~/Pictures/wallpapers/compiling.jpg &
+eval "$(dbus-launch --sh-syntax --exit-with-session)"
+
+xwallpaper --stretch ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers | shuf -n 1) &
 setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &
 xset r rate 300 50 &
 dunst &
 slstatus &
-exec dwm
-#exec openbox
+exec dbus-launch --sh-syntax --exit-with-session dwm

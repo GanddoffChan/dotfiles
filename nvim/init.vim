@@ -5,7 +5,7 @@
 " |_|_| |_|_|\__(_)_/ |_|_| |_| |_|
 
 " Create plugin directories if not already created
-" Plz install curl kkk
+" Plz install curl
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -13,7 +13,6 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
-
 
 " VimPlugs.
     call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
@@ -58,6 +57,16 @@ syntax on
 
 " Indents that consist of 4 space characters but are entered with the tab key.
     set tabstop=4 softtabstop=4 expandtab shiftwidth=4 autoindent smarttab
+
+function! CheckColumn()
+    let c = col('.')
+    if c > 80
+        exe "normal diwo\<Esc>pA"
+    else
+    endif
+endfunction
+
+"autocmd CursorMovedI * call CheckColumn()
 
 " Some basics.
     autocmd InsertEnter * norm zz

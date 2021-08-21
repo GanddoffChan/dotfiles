@@ -1,8 +1,6 @@
 #!/bin/sh
 
-eval "$(dbus-launch --sh-syntax --exit-with-session)"
-
-xwallpaper --stretch ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers | shuf -n 1) &
+xwallpaper --stretch ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers | shuf)  &
 setxkbmap -option caps:swapescape &
 redshift &
 xcompmgr &

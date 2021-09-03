@@ -29,13 +29,19 @@ let mapleader=","
 set clipboard+=unnamedplus
 set encoding=utf-8
 set go=a
-set ignorecase
+set ignorecase smartcase
 set mouse=a
 set nocompatible
 set noswapfile
 set number relativenumber
 set title
-syntax on
+set exrc
+set guicursor=
+set nohlsearch
+set hidden
+set termguicolors
+set scrolloff=8
+set updatetime=50
 
 " Minimalistic status line (I hate plug-ins.).
     set statusline=
@@ -56,22 +62,10 @@ syntax on
     set statusline+=\ %P\                       " percentage
 
 " Indents that consist of 4 space characters but are entered with the tab key.
-    set tabstop=4 softtabstop=4 expandtab shiftwidth=4 autoindent smarttab
-
-function! CheckColumn()
-    let c = col('.')
-    if c > 80
-        exe "normal diwo\<Esc>pA"
-    else
-    endif
-endfunction
-
-"autocmd CursorMovedI * call CheckColumn()
+    set tabstop=4 softtabstop=4 expandtab shiftwidth=4 smartindent smarttab
 
 " Some basics.
-    autocmd InsertEnter * norm zz
     filetype plugin indent on
-    nnoremap ; :
     nnoremap N   Nzz
     nnoremap c "_c
     nnoremap n   nzz

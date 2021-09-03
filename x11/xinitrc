@@ -8,4 +8,5 @@ xcompmgr &
 xset r rate 300 50 &
 dunst &
 slstatus &
+#xautolock -time 2 -locker slock &
 exec dbus-launch --sh-syntax --exit-with-session dwm

@@ -23,6 +23,7 @@ endif
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'vimwiki/vimwiki'
+    Plug 'daveyarwood/vim-alda'
     call plug#end()
 
 let mapleader=","

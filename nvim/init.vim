@@ -74,6 +74,12 @@ set updatetime=50
 " Auto spell check on certain file types.
     autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 
+" Turn off autoindent / smartindent for tex files.
+    autocmd FileType tex setlocal noai nosi
+
+" C indent for c files.
+    autocmd FileType c setlocal cin
+
 " Enable auto completion.
     set wildmode=longest,list,full
 
@@ -132,8 +138,8 @@ set updatetime=50
     autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
     autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-" Save file as sudo on files that require root permission.
-    cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+" Save file as doas on files that require root permission.
+    cnoremap w!! execute 'silent! write !doas tee % >/dev/null' <bar> edit!
 
 " Enable Goyo by default for mutt writing.
     autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80

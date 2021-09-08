@@ -75,11 +75,13 @@ cmd bulkrename $vidir
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(cut -d'    ' -f2 ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 map gh
-map g top
+map d
+map y
+map dd cut
+map yy copy
+map gg top
 map D delete
 map E extract
-map C copyto
-map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-s> set hidden!

@@ -39,12 +39,12 @@ news () {
     curl getnews.tech/$1
 }
 
-newtex () {
-	cp ~/Documents/LaTeX/templete.tex ~/Documents/LaTeX/$1 && vi ~/Documents/LaTeX/$1
+newscript () {
+    cp ~/scripts/templete ~/scripts/$1 && vi ~/scripts/$1
 }
 
-dt () {
-	dict $1 | cat
+newtex () {
+	cp ~/Documents/LaTeX/templete.tex ~/Documents/LaTeX/$1 && vi ~/Documents/LaTeX/$1
 }
 
 wf () {
@@ -135,6 +135,7 @@ alias sun='echo sun'
 alias stx='startx ~/.config/x11/xinitrc'
 alias tex='cd ~/Documents/LaTeX'
 alias umk='doas make clean uninstall'
+alias writeup='cd ~/Documents/writeup'
 alias weather='curl wttr.in/Singapore'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias yt='youtube-dl --add-metadata -i'

@@ -44,7 +44,7 @@ newscript () {
 }
 
 newtex () {
-	cp ~/Documents/LaTeX/templete.tex ~/Documents/LaTeX/$1 && vi ~/Documents/LaTeX/$1
+	cp ~/Documents/latex/templete.tex ~/Documents/latex/$1 && vi ~/Documents/latex/$1
 }
 
 wf () {
@@ -133,7 +133,7 @@ alias sc='source ~/.bashrc'
 alias sptf='spotifyd && spt'
 alias sun='echo sun'
 alias stx='startx ~/.config/x11/xinitrc'
-alias tex='cd ~/Documents/LaTeX'
+alias tex='cd ~/Documents/latex'
 alias umk='doas make clean uninstall'
 alias writeup='cd ~/Documents/writeup'
 alias weather='curl wttr.in/Singapore'

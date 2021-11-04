@@ -11,8 +11,7 @@
 autoload -U colors && colors	# Load colors
 setopt prompt_subst
 PROMPT="%B%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~ $%b "
-RPROMPT="%D{(%a) %d %b %y | %H:%M:%S}"
-#PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+RPROMPT="%B%D{%H:%M:%S}"
 precmd() $funcstack[1]() echo   # Print lines between commands
 setopt autocd                   # Automatically cd into typed directory.
 stty stop undef		            # Disable ctrl-s to freeze terminal.
@@ -140,6 +139,8 @@ alias weather='curl wttr.in/Singapore'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias yt='youtube-dl --add-metadata -i'
 alias yta='yt -x -f bestaudio/best'
+alias wall='xwallpaper --stretch ~/Pictures/wallpapers/$(ls ~/Pictures/wallpapers | shuf -n 1)'
+alias kspp='cd .local/share/Steam/steamapps/common/Kerbal\ Space\ Program/'
 
 # Load syntax highlighting; should be last.
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
